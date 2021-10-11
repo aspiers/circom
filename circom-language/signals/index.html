@@ -1076,7 +1076,7 @@ template B(){
 component main = B();
 </code></pre>
 <p>This example produces a compilation error since value of signal <code>outA</code> depends on the value of signal <code>in</code>, even though, such a value is the constant 3.</p>
-<p>Signals can only be assigned using the operations <code>&lt;--</code> or <code>&lt;==</code> <span class="arithmatex">\(see [Basic operators](/circom-language/basic-operators)\)</span> with the signal on the left hand side and and <code>--&gt;</code> or <code>==&gt;</code> <span class="arithmatex">\(see [Basic operators](/circom-language/basic-operators)\)</span> with the signal on the right hand side. The safe options are <code>&lt;==</code> and <code>==&gt;</code>, since they assign values and also generate constraints at the same time. Using <code>&lt;--</code> and <code>--&gt;</code> is, in general, dangerous and should only be used when the assigned expression cannot be included in a constraint, like in the following example.</p>
+<p>Signals can only be assigned using the operations <code>&lt;--</code> or <code>&lt;==</code> (see <a href="../basic-operators">Basic operators</a>) with the signal on the left hand side and and <code>--&gt;</code> or <code>==&gt;</code> (see <a href="../basic-operators">Basic operators</a>) with the signal on the right hand side. The safe options are <code>&lt;==</code> and <code>==&gt;</code>, since they assign values and also generate constraints at the same time. Using <code>&lt;--</code> and <code>--&gt;</code> is, in general, dangerous and should only be used when the assigned expression cannot be included in a constraint, like in the following example.</p>
 <pre><code class="language-text">out[k] &lt;-- (in &gt;&gt; k) &amp; 1;
 </code></pre>
                 

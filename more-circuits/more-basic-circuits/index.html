@@ -1125,13 +1125,13 @@ template Multiplier3 () {
 component main = Multiplier3();
 </code></pre>
 <p>As expected, we first declare three input signals <code>in1, in2, in3,</code> and an output signal <code>out</code> and two instances of <code>Multiplier2</code> . Instantiations of templates are done using the keyword <code>component</code>. We need an instance <code>mult1</code> to multiply <code>in1</code> and <code>in2</code>. In order to assign the values of the input signals of <code>mult1</code> we use the dot notation <code>"."</code>. Once <code>mult1.in1</code> and <code>mult1.in2</code> have their values set, then the value of <code>mult1.out</code> is computed. This value can be now used to set the input value of <code>mult2</code>  of the second instance of <code>Multiplier2</code>to multiply <code>in1*in2</code> and <code>in3</code> obtaining the final result  <code>in1*in2*in3</code>.</p>
-<p>Finally, every execution starts from an initial <a href="/circom-language/the-main-component">main component</a> defined as follows.</p>
+<p>Finally, every execution starts from an initial <a href="../../circom-language/the-main-component">main component</a> defined as follows.</p>
 <pre><code class="language-text">component main {public [in1,in2,in3]} = Multiplier3();
 </code></pre>
 <p>Here, we indicate that the initial component for our first circom program is the circuit <code>Multiplier3</code> which has three public signals: <code>in1, in2</code> and <code>in3</code>.
 In circom, all output signals of the main component are public (and cannot be made private), the input signals of the main component are private if not stated otherwise using the keyword public as avobe. The rest of signals are all private and cannot be made public.</p>
 <h2 id="extending-our-multiplier-to-n-inputs">Extending our multiplier to N inputs</h2>
-<p>When defining a template, we can use <a href="/circom-language/templates-and-components">parameters</a> to build generic circuits. These parameters must have a <a href="/circom-language/circom-insight/unknowns">known</a> value at the moment of the instantiation of the template. Following up the previous example, we can implement an N-input multiplier, where <code>N</code> is a parameter.</p>
+<p>When defining a template, we can use <a href="../../circom-language/templates-and-components">parameters</a> to build generic circuits. These parameters must have a <a href="../../circom-language/circom-insight/unknowns">known</a> value at the moment of the instantiation of the template. Following up the previous example, we can implement an N-input multiplier, where <code>N</code> is a parameter.</p>
 <pre><code class="language-text">pragma circom 2.0.0; 
 
 template Multiplier2(){
@@ -1155,7 +1155,7 @@ template MultiplierN (N){
 
 component main = MultiplierN(4);
 </code></pre>
-<p>In addition to the parameter<code>N</code>, two well-known concepts appear in this fragment of code: <a href="/circom-language/data-types">arrays</a> and <a href="/circom-language/data-types">integer variables</a>. </p>
+<p>In addition to the parameter<code>N</code>, two well-known concepts appear in this fragment of code: <a href="../../circom-language/data-types">arrays</a> and <a href="../../circom-language/data-types">integer variables</a>. </p>
 <p>As we have seen for a 3-input multiplier, we need 3 input signals and 2 components of <code>Multiplier2</code>. Then, for an N-input multiplier, we need an N-dimensional array of input signals and an <span class="arithmatex">\(N-1\)</span>-dimensional array of components of <code>Multiplier2</code>. </p>
 <p>We also need an integer variable <code>i</code> to instantiate each component <code>comp[i]</code>. Once this is done, we have to set the signals for each component as follows:</p>
 <pre><code class="language-text">   comp[0].in1 &lt;== in[0];
@@ -1241,7 +1241,7 @@ template binaryCheck () {
 component main = binaryCheck();
 </code></pre>
 <p>After declaring the signals of the circuit, we use the operator <code>===</code>to introduce the constraint <code>in * (in -1) = 0</code>. The solutions of this constraint are <code>in = 0</code> and <code>in = 1</code>. This means that the constraint has solution if and only if the input signal is binary.</p>
-<p>The instruction <code>out &lt;== in</code> not only assigns the value of signal <code>in</code> to signal <code>out</code>, but it also adds the constraint <code>out = in</code> to the set of constraints that define the circuit. Then, when both constraints have solution, it is guaranteed that the output signal is binary. Sometimes, we only want to assign the value of a signal but not adding the corresponding constraint. In this case, we will use the operator <code>&lt;--</code> and <code>--&gt;</code>. The differences between <code>&lt;--/--&gt;</code> and <code>&lt;==/==&gt;</code> are described <a href="/circom-language/signals">here</a>.</p>
+<p>The instruction <code>out &lt;== in</code> not only assigns the value of signal <code>in</code> to signal <code>out</code>, but it also adds the constraint <code>out = in</code> to the set of constraints that define the circuit. Then, when both constraints have solution, it is guaranteed that the output signal is binary. Sometimes, we only want to assign the value of a signal but not adding the corresponding constraint. In this case, we will use the operator <code>&lt;--</code> and <code>--&gt;</code>. The differences between <code>&lt;--/--&gt;</code> and <code>&lt;==/==&gt;</code> are described <a href="../../circom-language/signals">here</a>.</p>
 <h2 id="writing-a-logic-gate-and-with-two-inputs">Writing a logic gate AND with two inputs</h2>
 <p>We are going to use the circuits <code>Multiplier2</code> and <code>binaryCheck</code> to build a 2-gate logic AND.</p>
 <pre><code class="language-text">pragma circom 2.0.0;

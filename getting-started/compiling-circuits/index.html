@@ -1025,7 +1025,7 @@
    ARGS:
       &lt;input&gt;    Path to a circuit with a main component [default: ./circuit.circom]
 </code></pre>
-<p>We created a template called <code>Multiplier2</code> in <a href="/getting-started/writing-compiling-circuits">Writing our first circuit</a>. 
+<p>We created a template called <code>Multiplier2</code> in <a href="../writing-circuits">Writing our first circuit</a>. 
 However, to actually create a circuit, we have to create an instance of this template. To do so, create a file with the following content:</p>
 <pre><code class="language-text">pragma circom 2.0.0;
 
@@ -1046,8 +1046,8 @@ We can compile the circuit with the following command:</p>
 </code></pre>
 <p>With these options we generate three types of files:</p>
 <ul>
-<li><code>--r1cs</code>: it generates the file <code>multiplier2.r1cs</code> that contains the <a href="/background/background#rank-1-constraint-system">R1CS constraint system</a> of the circuit in binary format.</li>
-<li><code>--wasm</code>: it generates the directory <code>multiplier2_js</code> that contains the <code>Wasm</code> code (multiplier2.wasm) and other files needed to generate the <a href="/background/background#witness">witness</a>.</li>
+<li><code>--r1cs</code>: it generates the file <code>multiplier2.r1cs</code> that contains the <a href="../../background/background#rank-1-constraint-system">R1CS constraint system</a> of the circuit in binary format.</li>
+<li><code>--wasm</code>: it generates the directory <code>multiplier2_js</code> that contains the <code>Wasm</code> code (multiplier2.wasm) and other files needed to generate the <a href="../../background/background#witness">witness</a>.</li>
 <li><code>--sym</code> : it generates the file <code>multiplier2.sym</code> , a symbols file required for debugging or for printing the constraint system in an annotated mode.</li>
 <li><code>--c</code> : it generates the directory <code>multiplier2_cpp</code> that contains several files (multiplier2.cpp, multiplier2.dat, and other common files for every compiled program  like main.cpp, MakeFile, etc)  needed to compile the C code to generate the witness.</li>
 </ul>
