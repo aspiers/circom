@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://127.0.0.1:8000/getting-started/proving-circuits/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Proving circuits with ZK - Circom 2 Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Proving circuits with ZK";
+    var mkdocs_page_input_path = "getting-started/proving-circuits.md";
+    var mkdocs_page_url = "/getting-started/proving-circuits/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Circom 2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../background/">Background on ZK</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-compiling-circuits/">Writing and compiling circuits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../computing-the-witness/">Computing the witness</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Proving circuits with ZK</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trusted-setup-powers-of-tau">Trusted setup: Powers of Tau </a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trusted-setup-phase-2">Trusted setup: Phase 2 </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generating-a-groph16-zkp">Generating a Groph16 ZKP </a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">The circom Language</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Signals</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/signals/">Signals</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/variables-and-mutability/">Variables & Mutability</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Templates</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/templates-and-components/">Templates & Components</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/pragma/">Pragma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/functions/">Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/include/">Include</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/the-main-component/">The main Component</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Syntax</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/comment-lines/">Comment Lines</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/identifiers/">Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/reserved-keywords/">Reserved-keywords</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/basic-operators/">Basic Operators</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/constraint-generation/">Constraint Generation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/control-flow/">Control Flow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/data-types/">Data Types</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/scoping/">Scoping</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Code Quality</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/code-quality/code-assertion/">Code Assertion</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/code-quality/debugging-operations/">Debugging Operations</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Circom Insight</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/circom-phases/">Compiler Phases</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/compiler-messages/">Compiler Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/unknowns/">Unknowns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/circom-library/">Circom Library</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Circom 2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting started &raquo;</li>
+        
+      
+    
+    <li>Proving circuits with ZK</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="proving-circuits">Proving circuits</h1>
+<h2 id="next-steps">Next steps</h2>
+<p>After compiling the circuit and running the witness calculator with 
+an appropriate input we have a file with extension .wtns that 
+contains all the computed signals and a file with extension .r1cs that contains the constraints describing the circuit. Both files will be used in our proof.</p>
+<p>Now, we will use the <code>snarkjs</code> tool to generate and validate our zk-SNARK. In particular, using the multiplier2, <strong>we will prove that we are able to provide the two factors of the number 33</strong>. That is, we will show that we know two integers <code>a</code> and <code>b</code> such that when we multiply them, it results in the number 33.</p>
+<p>Before generating the proof, you will need to generate a <a href="/getting-started/background#trusted-setup">trusted setup</a>. Generating a trusted setup consists of 2 parts: powers of tau and phase 2. Next, we provide a very basic ceremony for creating the trusted setup for the <a href="https://eprint.iacr.org/2016/260">Groth16</a> zk-SNARK protocol. We also provide the basic commands to create and verify <a href="https://eprint.iacr.org/2016/260">Groth16</a> proofs. Review the related <a href="/getting-started/background">Background</a> section and check <a href="https://github.com/iden3/snarkjs">the snarkjs tutorial</a> for further information.</p>
+<h2 id="trusted-setup-powers-of-tau">Trusted setup: Powers of Tau <a id="my-first-trusted-setup"></a></h2>
+<!-- 
+You can access the **help** of `snarkjs` by typing the command:
+
+`$ snarkjs --help`
+
+You can get general **statistics** of the circuit and print the **constraints**. Just run:
+
+
+<pre><code class="language-text">snarkjs info -c multiplier2.r1cs 
+snarkjs print -r multiplier2.r1cs -s multiplier2.sym
+</code></pre>
+
+-->
+
+<p>First, we start a new powers of tau ceremony:</p>
+<pre><code class="language-text">snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
+</code></pre>
+<p>Then, we contribute to the ceremony:</p>
+<pre><code class="language-text">snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name=&quot;First contribution&quot; -v
+</code></pre>
+<!--
+We can verify the protocol so far:
+
+
+<pre><code class="language-text">snarkjs powersoftau verify pot12_0001.ptau
+</code></pre>
+
+-->
+
+<p>Finally, we apply a random beacon:</p>
+<pre><code class="language-text">snarkjs powersoftau beacon pot12_0001.ptau pot12_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n=&quot;Final Beacon&quot;
+</code></pre>
+<p>Now, we have the contributions to the powers of tau in the file <em>pot12_beacon.ptau</em> and 
+we can proceed with the Phase 2.</p>
+<h2 id="trusted-setup-phase-2">Trusted setup: Phase 2 <a id="my-first-trusted-setup"></a></h2>
+<p>The <strong>phase 2</strong> is <strong>circuit-specific</strong>. 
+Execute the following command to start the generation of this phase:</p>
+<pre><code class="language-text">snarkjs powersoftau prepare phase2 pot12_beacon.ptau pot12_final.ptau -v
+</code></pre>
+<!--
+We can verify the final ptau file:
+snarkjs powersoftau verify pot12_final.ptau
+-->
+
+<p>In this phase, we will generate a <code>.zkey</code> file that will contain the proving and verification keys together with all phase 2 contributions.
+Execute the following command to start a new zkey:</p>
+<pre><code class="language-text">snarkjs groth16 setup multiplier2.r1cs pot12_final.ptau multiplier2_0000.zkey
+</code></pre>
+<p>Contribute to the phase 2 ceremony:</p>
+<pre><code class="language-text">snarkjs zkey contribute multiplier2_0000.zkey multiplier2_0001.zkey --name=&quot;1st Contributor Name&quot; -v
+</code></pre>
+<!-- 
+Verify the latest zkey
+snarkjs zkey verify $1.r1cs pot12_final.ptau $1_0001.zkey
+-->
+
+<p>Apply a random beacon:</p>
+<pre><code class="language-text">snarkjs zkey beacon multiplier2_0001.zkey multiplier2_final.zkey 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n=&quot;Final Beacon phase2&quot;
+</code></pre>
+<!-- 
+Verify the final zkey
+snarkjs zkey verify $1.r1cs pot12_final.ptau $1_final.zkey
+
+As before, you will be prompted to enter some random text to provide a source of entropy. The output will be a file named `multiplier2_final.zkey`, which we will use to **export the verification key**.
+
+
+<pre><code class="language-text">snarkjs zkey export verificationkey multiplier2_final.zkey verification_key.json
+</code></pre>
+
+
+Now, the verification key from `multiplier2_final.zkey` is exported into the file `verification_key.json`.
+
+You can always **verify** that the computations of a `.ptau` or a `.zkey` file are correct:
+
+
+<pre><code class="language-text">snarkjs powersoftau verify pot12_final.ptausnarkjs zkey verify multiplier2.r1cs pot12_final.ptau multiplier2_final.zkey
+</code></pre>
+
+
+If everything checks out, you should see the following at the top of the output:
+
+
+<pre><code class="language-text">[INFO]  snarkJS: Powers of Tau file OK![INFO]  snarkJS: ZKey OK!
+</code></pre>
+
+
+​The command `snarkjs zkey verify` also checks that the `.zkey` file corresponds to the specific circuit.
+-->
+
+<p>Export the verification key:</p>
+<pre><code class="language-text">snarkjs zkey export verificationkey multiplier2_final.zkey verification_key.json
+</code></pre>
+<h3 id="generating-a-groph16-zkp">Generating a Groph16 ZKP <a id="my-first-zero-knowledge-proof"></a></h3>
+<p>Once the witness is computed and the trusted setup is already executed, we can <strong>generate a zk-proof</strong> associated to the circuit and the witness:</p>
+<pre><code class="language-text">snarkjs groth16 prove multiplier2_final.zkey witness.wtns proof.json public.json
+</code></pre>
+<p>This command generates a <a href="https://eprint.iacr.org/2016/260">Groth16</a> proof and outputs two files:</p>
+<ul>
+<li><code>proof.json</code>: it contains the <a href="https://eprint.iacr.org/2016/260">Groth16</a> proof.</li>
+<li><code>public.json</code>: it contains the values of the public inputs and outputs.</li>
+</ul>
+<p>To <strong>verify the proof</strong>, execute the following command:</p>
+<pre><code class="language-text">snarkjs groth16 verify verification_key.json public.json proof.json
+</code></pre>
+<p>The command uses the files <code>verification_key.json</code> we exported earlier,<code>proof.json</code> and <code>public.json</code> to check if the proof is valid. If the proof is valid, the command outputs an <code>OK</code>.</p>
+<p>A valid proof not only proves that we know a set of signals that satisfy the circuit, but also that the public inputs and outputs that we use match the ones described in the <code>public.json</code> file.</p>
+<p>​👉 It is also possible to generate a <strong>Solidity verifier</strong> that allows <strong>verifying proofs on Ethereum blockchain</strong>.</p>
+<p>First, we need to generate the Solidity code using the command:</p>
+<pre><code class="language-text">snarkjs zkey export solidityverifier multiplier2_final.zkey verifier.sol
+</code></pre>
+<p>This command takes validation key <code>multiplier2_final.zkey</code> and outputs Solidity code in a file named <code>verifier.sol</code>. You can take the code from this file and cut and paste it in Remix. You will see that the code contains two contracts: <code>Pairing</code> and <code>Verifier</code>. You only need to deploy the <code>Verifier</code> contract.</p>
+<p>You may want to use first a testnet like Rinkeby, Kovan or Ropsten. You can also use the JavaScript VM, but in some browsers the verification takes long and the page may freeze.</p>
+<p>The <code>Verifier</code> has a <code>view</code> function called <code>verifyProof</code> that returns <code>TRUE</code> if and only if the proof and the inputs are valid. To facilitate the call, you can use <code>snarkJS</code> to generate the parameters of the call by typing:</p>
+<pre><code class="language-text">snarkjs generatecall
+</code></pre>
+<p>Cut and paste the output of the command to the parameters field of the <code>verifyProof</code> method in Remix. If everything works fine, this method should return <code>TRUE</code>. You can try to change just a single bit of the parameters, and you will see that the result is verifiable <code>FALSE</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../circom-language/signals/" class="btn btn-neutral float-right" title="Signals">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../computing-the-witness/" class="btn btn-neutral" title="Computing the witness"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../computing-the-witness/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../circom-language/signals/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

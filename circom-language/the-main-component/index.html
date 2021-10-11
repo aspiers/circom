@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://127.0.0.1:8000/circom-language/the-main-component/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>The main Component - Circom 2 Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "The main Component";
+    var mkdocs_page_input_path = "circom-language/the-main-component.md";
+    var mkdocs_page_url = "/circom-language/the-main-component/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Circom 2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/background/">Background on ZK</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/writing-compiling-circuits/">Writing and compiling circuits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/computing-the-witness/">Computing the witness</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/proving-circuits/">Proving circuits with ZK</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">The circom Language</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Signals</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../signals/">Signals</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../variables-and-mutability/">Variables & Mutability</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Templates</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../templates-and-components/">Templates & Components</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pragma/">Pragma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../functions/">Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../include/">Include</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">The main Component</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Syntax</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../comment-lines/">Comment Lines</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../identifiers/">Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../reserved-keywords/">Reserved-keywords</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../basic-operators/">Basic Operators</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../constraint-generation/">Constraint Generation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../control-flow/">Control Flow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-types/">Data Types</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../scoping/">Scoping</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Code Quality</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../code-quality/code-assertion/">Code Assertion</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../code-quality/debugging-operations/">Debugging Operations</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Circom Insight</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/circom-phases/">Compiler Phases</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/compiler-messages/">Compiler Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/unknowns/">Unknowns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/circom-library/">Circom Library</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Circom 2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>The circom Language &raquo;</li>
+        
+      
+        
+          <li>Templates &raquo;</li>
+        
+      
+    
+    <li>The main Component</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-main-component">The Main Component</h1>
+<p>In order to start the execution, an initial component has to be given. By default, the name of this component is “main”, and hence the component main needs to be instantiated with some template.</p>
+<p>This is a special initial component needed to create a circuit and it defines the global input and output signals of a circuit. For this reason, compared to the other components, it has a special attribute: the list of public input signals. The syntax of the creation of the main component is:</p>
+<pre><code class="language-text">component main {public [signal_list]} = tempid(v1,...,vn);
+</code></pre>
+<p>where <code>{public [signal_list]}</code> is optional. Any input signal of the template that is not included in the list is considered private.</p>
+<pre><code class="language-text">pragma circom 2.0.0;
+
+template A(){
+    signal input in1;
+    signal input in2;
+    signal output out;
+    out &lt;== in1 * in2;
+}
+
+component main {public [in1]}= A();
+</code></pre>
+<p>In this example, we have two input signals <code>in1</code> and <code>in2</code>. Let us notice that <code>in1</code> has been declared as a public signal for the circuit, whereas <code>in2</code> is considered a private signal since it does not appear in the list. Finally, output signals are always considered public signals.</p>
+<p>Only one main component can be defined, not only in the file being compiled but also in any other circom file included in the program. Otherwise, the compilation fails and the next message is shown: <em>"Multiple main components in the project structure"</em></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../comment-lines/" class="btn btn-neutral float-right" title="Comment Lines">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../include/" class="btn btn-neutral" title="Include"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../include/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../comment-lines/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

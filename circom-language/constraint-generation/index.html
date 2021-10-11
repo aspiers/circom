@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://127.0.0.1:8000/circom-language/constraint-generation/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Constraint Generation - Circom 2 Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Constraint Generation";
+    var mkdocs_page_input_path = "circom-language/constraint-generation.md";
+    var mkdocs_page_url = "/circom-language/constraint-generation/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Circom 2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/background/">Background on ZK</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/writing-compiling-circuits/">Writing and compiling circuits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/computing-the-witness/">Computing the witness</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/proving-circuits/">Proving circuits with ZK</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">The circom Language</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Signals</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../signals/">Signals</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../variables-and-mutability/">Variables & Mutability</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Templates</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../templates-and-components/">Templates & Components</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pragma/">Pragma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../functions/">Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../include/">Include</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../the-main-component/">The main Component</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Syntax</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../comment-lines/">Comment Lines</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../identifiers/">Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../reserved-keywords/">Reserved-keywords</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../basic-operators/">Basic Operators</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Constraint Generation</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../control-flow/">Control Flow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-types/">Data Types</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../scoping/">Scoping</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Code Quality</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../code-quality/code-assertion/">Code Assertion</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../code-quality/debugging-operations/">Debugging Operations</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Circom Insight</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/circom-phases/">Compiler Phases</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/compiler-messages/">Compiler Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/unknowns/">Unknowns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circom-insight/circom-library/">Circom Library</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Circom 2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>The circom Language &raquo;</li>
+        
+      
+    
+    <li>Constraint Generation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="constraint-generation">Constraint Generation</h1>
+<p>To understand the constructive part of circom, we need to consider the following type of expressions:</p>
+<ul>
+<li><strong>Constant values</strong>: only a constant value is allowed.</li>
+<li><strong>Linear expression</strong>: an expression where only addition is used. It can also be written using multiplication of variables by constants. For instance, the expression <code>2*x + 3*y + 2</code> is allowed, as it is equivalent to <code>x + x + y + y + y + 2</code>. </li>
+<li><strong>Quadratic expression</strong>: it is obtained by allowing a multiplication between two linear expressions and addition of a linear expression: A*B - C, where A, B and C are linear expressions. For instance, <code>(2*x + 3*y + 2) * (x+y) + 6*x + y – 2</code>.</li>
+<li><strong>Non quadratic expressions</strong>: any arithmetic expression which is not of the previous kind.</li>
+</ul>
+<p>circom allows programmers to define the constraints that define the arithmetic circuit. All constraints must be quadratic of the form A*B + C = 0, where A, B and C are linear combinations of signals. circom will apply some minor transformations on the defined constraints in order to meet the format A*B + C = 0:</p>
+<ul>
+<li>Moves from one side of the equality to the other.</li>
+<li>Applications of commutativity of addition.</li>
+<li>Multiplication (or divisions) by constants.</li>
+</ul>
+<p>A constraint is imposed with the operator <code>===</code>,  which creates the simplified form of the given equality constraint.</p>
+<pre><code class="language-text">a*(a-1) === 0;
+</code></pre>
+<p>Adding such constraint also implies adding an <code>assert</code> statement in the witness code generation.</p>
+<p>Constraint generation can be combined with signal assignment with the operator  <code>&lt;==</code> with the signal to be assigned on the left hand side of the operator.</p>
+<pre><code class="language-text">out &lt;== 1 - a*b;
+</code></pre>
+<p>Which is equivalent to:</p>
+<pre><code class="language-text">out === 1 – a*b;
+out &lt;-- 1 - a*b;
+</code></pre>
+<p>As mentioned before, assigning a value to a signal using <code>&lt;--</code> and <code>--&gt;</code> is considered dangerous and should, in general, be combined with adding constraints with <code>===</code>, which describe by means of constraints which the assigned values are. For example:</p>
+<pre><code class="language-text">a &lt;-- b/c;
+a*c === b;
+</code></pre>
+<p>In the constructive phase, a variable can contain arithmetic expressions that are built using multiplication, addition, and other variables or signals and field values. Only quadratic expressions are allowed to be included in constraints. Other arithmetic expressions beyond quadratic or using other arithmetic operators like division or power are not allowed as constraints. </p>
+<pre><code class="language-text">template multi3() {
+     signal input in;
+     signal input in2;
+     signal input in3;
+     signal output out;
+     out &lt;== in*in2*in3;
+}
+</code></pre>
+<p>This template produces the error "Non quadratic constraints are not allowed!", since it introduces the constraint <code>out === in*in2*in3</code> which is NOT quadratic.</p>
+<p>The following example shows the generation of expressions:</p>
+<pre><code class="language-text"> signal input a;
+ signal output b;
+ var x = a*a;
+ x += 3;
+ b &lt;== x;
+</code></pre>
+<p>The last instruction produces the constraint <code>b === a * a + 3</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../control-flow/" class="btn btn-neutral float-right" title="Control Flow">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../basic-operators/" class="btn btn-neutral" title="Basic Operators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../basic-operators/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../control-flow/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

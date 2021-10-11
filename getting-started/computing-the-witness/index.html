@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://127.0.0.1:8000/getting-started/computing-the-witness/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Computing the witness - Circom 2 Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Computing the witness";
+    var mkdocs_page_input_path = "getting-started/computing-the-witness.md";
+    var mkdocs_page_url = "/getting-started/computing-the-witness/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Circom 2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../background/">Background on ZK</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-compiling-circuits/">Writing and compiling circuits</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Computing the witness</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-witness">What is a witness?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#computing-the-witness-from-the-webassembly-directory">Computing the witness from the WebAssembly directory </a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#computing-the-witness-from-the-c-directory">Computing the witness from the C++ directory </a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../proving-circuits/">Proving circuits with ZK</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">The circom Language</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Signals</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/signals/">Signals</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/variables-and-mutability/">Variables & Mutability</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Templates</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/templates-and-components/">Templates & Components</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/pragma/">Pragma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/functions/">Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/include/">Include</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/the-main-component/">The main Component</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Syntax</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/comment-lines/">Comment Lines</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/identifiers/">Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/reserved-keywords/">Reserved-keywords</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/basic-operators/">Basic Operators</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/constraint-generation/">Constraint Generation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/control-flow/">Control Flow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/data-types/">Data Types</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../circom-language/scoping/">Scoping</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Code Quality</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/code-quality/code-assertion/">Code Assertion</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/code-quality/debugging-operations/">Debugging Operations</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Circom Insight</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/circom-phases/">Compiler Phases</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/compiler-messages/">Compiler Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/unknowns/">Unknowns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circom-language/circom-insight/circom-library/">Circom Library</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Circom 2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting started &raquo;</li>
+        
+      
+    
+    <li>Computing the witness</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="computing-our-witness">Computing our witness</h1>
+<h2 id="what-is-a-witness">What is a witness?</h2>
+<p>Before creating the proof, we need to calculate all the signals of the circuit that match all the constraints of the circuit. For that, we will use the <code>Wasm</code> module generated by<code>circom</code> that helps to do this job. It can also be done with the <code>C++</code> code in a similar way (see below).</p>
+<p>Let us start with the <code>Wasm</code> code. Using the generated <code>Wasm</code> binary and three JavaScript files, we simply need to provide a file with the inputs and the module will execute the circuit and calculate all the intermediate signals and the output. The set of inputs, intermediate signals and output is called <a href="/getting-started/background#witness">witness</a>.</p>
+<p>In our case, we want to prove that we are able to factor the number 33. So, we assign <code>a = 3</code> and <code>b = 11</code>.</p>
+<p>Note that we could assign the number 1 to one of the inputs and the number 33 to the other. So, our proof does not really show that we are able to factor the number 33. </p>
+<p>We need to create a file named <code>input.json</code> containing the inputs written in the standard json format.</p>
+<pre><code class="language-text">{&quot;a&quot;: 3, &quot;b&quot;: 11}
+</code></pre>
+<p>Now, we calculate the witness and generate a binary file <code>witness.wtns</code> containing it in a format accepted by <code>snarkjs</code>.</p>
+<p>After calling the <code>circom</code> compiler with the flag <code>--wasm</code> and the circuit <code>multiplier2.circom</code> we can find a <code>multiplier2_js</code> folder that contains the <code>Wasm</code> code in multiplier2.wasm and all the needed <code>JavaScript</code> files.</p>
+<h2 id="computing-the-witness-from-the-webassembly-directory">Computing the witness from the WebAssembly directory <a id="witness-from-wasm-directory"></a></h2>
+<p>Enter in the directory <code>multiplier2_js</code>, add the input in a file <code>input.json</code> and execute:</p>
+<pre><code class="language-text">node generate-witness.js multiplier2.wasm input.json witness.wtns
+</code></pre>
+<h2 id="computing-the-witness-from-the-c-directory">Computing the witness from the C++ directory <a id="witness-from-c-directory"></a></h2>
+<p>Instead of using the WebAssembly directory, we can alternatively use the C++ directory to compute the witness using the previous file <code>input.json</code>. Then we need to call the <code>circom</code> compiler with the flag <code>--c</code> and will get a <code>multiplier2_cpp</code> folder that contains the all <code>C++</code> code needed to compute the witness and a Makefile to easily generate an executable program.</p>
+<p>Enter in the directory <code>multiplier2_cpp</code> and execute:</p>
+<pre><code class="language-text">make
+</code></pre>
+<p>which creates an executable called <code>multiplier2</code>. Now, we execute it indicating the input file and the name for the witness file. </p>
+<pre><code class="language-text">./multiplier2 input.json witness.wtns
+</code></pre>
+<p>This command will generate the file <code>ẁitness.wtns</code> which has a format compatible with <code>snarkjs</code>, and can be used to create the proof. </p>
+<!--
+g++ -pthread -o circuit-512-32-256-64 -I ../../Fr -I ../../ ../../main.cpp ../../Fr/fr.o ../../Fr/fr.cpp ../../calcwit.cpp ../../utils.cpp circuit-512-32-256-64.cpp -lgmp -O3
+
+g++ -pthread -o circuit-512-32-256-64 -I Fr main.cpp Fr/fr.o Fr/fr.cpp calcwit.cpp utils.cpp circuit-512-32-256-64.cpp -lgmp -O3
+
+g++ -pthread -o circuit-512-32-256-64 main.cpp fr.o fr.cpp calcwit.cpp utils.cpp circuit-512-32-256-64.cpp -lgmp -O3
+
+To run the previous lines we can use make.
+But first need to install some dependencies:
+
+sudo apt install libgmp3-dev nasm
+
+./aliascheck_test 
+
+Usage: ./aliascheck_test <input.json> <output.wtns>
+
+wtns is a binary format for the witness.
+
+fr.asm is a field arithmetic in assembly.
+fr_asm.o is the compiled with nasm of the previous one.
+
+fr.cpp is the c++ that includes the previous program.
+-->
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../proving-circuits/" class="btn btn-neutral float-right" title="Proving circuits with ZK">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../writing-compiling-circuits/" class="btn btn-neutral" title="Writing and compiling circuits"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../writing-compiling-circuits/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../proving-circuits/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
