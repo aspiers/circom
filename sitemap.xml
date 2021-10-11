@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://127.0.0.1:8000/background/background/</loc>
+         <lastmod>2021-10-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://127.0.0.1:8000/circom-language/basic-operators/</loc>
          <lastmod>2021-10-11</lastmod>
          <changefreq>daily</changefreq>
@@ -107,11 +112,6 @@
     </url>
     <url>
          <loc>http://127.0.0.1:8000/circom-language/code-quality/debugging-operations/</loc>
-         <lastmod>2021-10-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>http://127.0.0.1:8000/getting-started/background/</loc>
          <lastmod>2021-10-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
