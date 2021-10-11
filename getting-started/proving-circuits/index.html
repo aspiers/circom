@@ -9,7 +9,7 @@
       
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/getting-started/proving-circuits/">
+        <link rel="canonical" href="http://docs.circom.io/getting-started/proving-circuits/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
@@ -78,7 +78,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Circom 2 Documentation" class="md-header__button md-logo" aria-label="Circom 2 Documentation" data-md-component="logo">
       
@@ -158,14 +160,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
@@ -226,7 +222,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -988,7 +990,7 @@
 an appropriate input we have a file with extension .wtns that 
 contains all the computed signals and a file with extension .r1cs that contains the constraints describing the circuit. Both files will be used in our proof.</p>
 <p>Now, we will use the <code>snarkjs</code> tool to generate and validate our zk-SNARK. In particular, using the multiplier2, <strong>we will prove that we are able to provide the two factors of the number 33</strong>. That is, we will show that we know two integers <code>a</code> and <code>b</code> such that when we multiply them, it results in the number 33.</p>
-<p>Before generating the proof, you will need to generate a <a href="/getting-started/background#trusted-setup">trusted setup</a>. Generating a trusted setup consists of 2 parts: powers of tau and phase 2. Next, we provide a very basic ceremony for creating the trusted setup for the <a href="https://eprint.iacr.org/2016/260">Groth16</a> zk-SNARK protocol. We also provide the basic commands to create and verify <a href="https://eprint.iacr.org/2016/260">Groth16</a> proofs. Review the related <a href="/getting-started/background">Background</a> section and check <a href="https://github.com/iden3/snarkjs">the snarkjs tutorial</a> for further information.</p>
+<p>Before generating the proof, you will need to generate a <a href="/background/background#trusted-setup">trusted setup</a>. Generating a trusted setup consists of 2 parts: powers of tau and phase 2. Next, we provide a very basic ceremony for creating the trusted setup for the <a href="https://eprint.iacr.org/2016/260">Groth16</a> zk-SNARK protocol. We also provide the basic commands to create and verify <a href="https://eprint.iacr.org/2016/260">Groth16</a> proofs. Review the related <a href="/background/background">Background</a> section and check <a href="https://github.com/iden3/snarkjs">the snarkjs tutorial</a> for further information.</p>
 <h2 id="trusted-setup-powers-of-tau">Trusted setup: Powers of Tau <a id="my-first-trusted-setup"></a></h2>
 <!-- 
 You can access the **help** of `snarkjs` by typing the command:
@@ -1127,11 +1129,6 @@ If everything checks out, you should see the following at the top of the output:
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Back to top
-          </a>
-        
       </main>
       
         
@@ -1193,7 +1190,7 @@ If everything checks out, you should see the following at the top of the output:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
