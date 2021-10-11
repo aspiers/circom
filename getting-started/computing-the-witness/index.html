@@ -1078,7 +1078,7 @@
 <p>After calling the <code>circom</code> compiler with the flag <code>--wasm</code> and the circuit <code>multiplier2.circom</code> we can find a <code>multiplier2_js</code> folder that contains the <code>Wasm</code> code in multiplier2.wasm and all the needed <code>JavaScript</code> files.</p>
 <h2 id="computing-the-witness-from-the-webassembly-directory">Computing the witness from the WebAssembly directory <a id="witness-from-wasm-directory"></a></h2>
 <p>Enter in the directory <code>multiplier2_js</code>, add the input in a file <code>input.json</code> and execute:</p>
-<pre><code class="language-text">node generate-witness.js multiplier2.wasm input.json witness.wtns
+<pre><code class="language-text">node generate_witness.js multiplier2.wasm input.json witness.wtns
 </code></pre>
 <h2 id="computing-the-witness-from-the-c-directory">Computing the witness from the C++ directory <a id="witness-from-c-directory"></a></h2>
 <p>Instead of using the WebAssembly directory, we can alternatively use the C++ directory to compute the witness using the previous file <code>input.json</code>. Then we need to call the <code>circom</code> compiler with the flag <code>--c</code> and will get a <code>multiplier2_cpp</code> folder that contains the all <code>C++</code> code needed to compute the witness and a Makefile to easily generate an executable program.</p>
