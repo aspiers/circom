@@ -1221,7 +1221,7 @@ component main = B(1);
     }
 }
 </code></pre>
-<p>When components are independent <span class="arithmatex">\(the inputs do not depend on each others’ outputs\)</span>, the computation of these parts can be done in parallel using the tag <code>parallel</code>, like shown in the next line.</p>
+<p>When components are independent (the inputs do not depend on each others’ outputs), the computation of these parts can be done in parallel using the tag <code>parallel</code>, like shown in the next line.</p>
 <pre><code class="language-text">template parallel NameTemplate(...){...}
 </code></pre>
 <p>If this tag is used, the resulting C++ file will contain the parallelized code to compute the witness. Parallelization becomes particularly relevant when dealing with large circuits.</p>

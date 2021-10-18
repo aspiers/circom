@@ -1015,7 +1015,7 @@ template Multiplier2(){
 component main {public [in1,in2]} = Multiplier2();
 </code></pre>
 <p>This example declares input signals <code>in1</code> and <code>in2</code> of the main component as public signals.</p>
-<p>In circom, all output signals of the main component are public (and cannot be made private), the input signals of the main component are private if not stated otherwise using the keyword public as avobe. The rest of signals are all private and cannot be made public. </p>
+<p>In circom, all output signals of the main component are public (and cannot be made private), the input signals of the main component are private if not stated otherwise using the keyword public as above. The rest of signals are all private and cannot be made public. </p>
 <p>Thus, from the programmer's point of view, only public input and output signals are visible from outside the circuit, and hence no intermediate signal can be accessed.</p>
 <pre><code class="language-text">pragma circom 2.0.0;
 
@@ -1055,7 +1055,7 @@ template B(){
 
 component main = B();
 </code></pre>
-<p>At compilation time, the content of a signal is always considered unknown <span class="arithmatex">\(see [Unknowns](/circom-language/circom-insight/unknowns)\)</span>, even if a constant is already assigned to them. The reason for that is to provide a precise <span class="arithmatex">\(decidable\)</span> definition of which constructions are allowed and which are not, without depending on the power of the compiler to detect whether a signal has always a constant value or not. </p>
+<p>At compilation time, the content of a signal is always considered unknown (see <a href="/circom-language/circom-insight/unknowns">Unknowns</a>), even if a constant is already assigned to them. The reason for that is to provide a precise <span class="arithmatex">\(decidable\)</span> definition of which constructions are allowed and which are not, without depending on the power of the compiler to detect whether a signal has always a constant value or not. </p>
 <pre><code class="language-text">pragma circom 2.0.0;
 
 template A(){

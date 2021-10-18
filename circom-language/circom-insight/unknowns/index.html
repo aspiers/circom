@@ -1040,7 +1040,7 @@ template A(n1, n2){
 component main = A(1,2);
 </code></pre>
 <p>Var <code>end</code> is considered unknown since it is the result of a function <code>F</code> called with the unknown parameter <code>in</code>. The compilation of the previous code produces the error <em>"Non quadratic constraints are not allowed!</em>", since the value of <code>j</code> depends on the value of <code>end</code>. </p>
-<p>The key point for the compiler in the constructive phase is that the generation of constraints cannot depend on conditions <span class="arithmatex">\(expressions\)</span> that are unknown.This is imposed on <a href="../../control-flow">all statements</a>. This can be seen both in the previous example and the next one:</p>
+<p>The key point for the compiler in the constructive phase is that the generation of constraints cannot depend on conditions (expressions) that are unknown.This is imposed on <a href="../../control-flow">all statements</a>. This can be seen both in the previous example and the next one:</p>
 <pre><code class="language-text">pragma circom 2.0.0;
 
 template wrong(){

@@ -1129,7 +1129,7 @@ component main = Multiplier3();
 <pre><code class="language-text">component main {public [in1,in2,in3]} = Multiplier3();
 </code></pre>
 <p>Here, we indicate that the initial component for our first circom program is the circuit <code>Multiplier3</code> which has three public signals: <code>in1, in2</code> and <code>in3</code>.
-In circom, all output signals of the main component are public (and cannot be made private), the input signals of the main component are private if not stated otherwise using the keyword public as avobe. The rest of signals are all private and cannot be made public.</p>
+In circom, all output signals of the main component are public (and cannot be made private), the input signals of the main component are private if not stated otherwise using the keyword public as above. The rest of signals are all private and cannot be made public.</p>
 <h2 id="extending-our-multiplier-to-n-inputs">Extending our multiplier to N inputs</h2>
 <p>When defining a template, we can use <a href="../../circom-language/templates-and-components">parameters</a> to build generic circuits. These parameters must have a <a href="../../circom-language/circom-insight/unknowns">known</a> value at the moment of the instantiation of the template. Following up the previous example, we can implement an N-input multiplier, where <code>N</code> is a parameter.</p>
 <pre><code class="language-text">pragma circom 2.0.0; 
